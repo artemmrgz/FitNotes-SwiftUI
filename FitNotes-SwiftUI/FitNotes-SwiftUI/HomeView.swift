@@ -55,6 +55,8 @@ struct HomeView: View {
             .font(.title2)
             .clipShape(.rect(cornerRadius: 10))
             .padding()
+            
+            WorkoutOverviewView(exercises: exercises)
         }
     }
 }

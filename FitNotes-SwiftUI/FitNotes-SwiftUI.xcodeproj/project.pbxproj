@@ -11,6 +11,14 @@
 		D98FFC212B0D241C0056880A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98FFC202B0D241C0056880A /* ContentView.swift */; };
 		D98FFC232B0D241E0056880A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D98FFC222B0D241E0056880A /* Assets.xcassets */; };
 		D98FFC262B0D241E0056880A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D98FFC252B0D241E0056880A /* Preview Assets.xcassets */; };
+		D98FFC2D2B0D267E0056880A /* CalendarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98FFC2C2B0D267E0056880A /* CalendarCellView.swift */; };
+		D98FFC2F2B0F63270056880A /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98FFC2E2B0F63270056880A /* CalendarViewModel.swift */; };
+		D98FFC312B0F6F8C0056880A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98FFC302B0F6F8C0056880A /* HomeView.swift */; };
+		D98FFC332B0FAC240056880A /* AddWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98FFC322B0FAC240056880A /* AddWorkoutView.swift */; };
+		D98FFC352B137BF80056880A /* WorkoutOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98FFC342B137BF80056880A /* WorkoutOverviewView.swift */; };
+		D98FFC382B13817D0056880A /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = D98FFC372B13817D0056880A /* Collections */; };
+		D98FFC3A2B13817D0056880A /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = D98FFC392B13817D0056880A /* DequeModule */; };
+		D98FFC3C2B13817D0056880A /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = D98FFC3B2B13817D0056880A /* OrderedCollections */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +27,11 @@
 		D98FFC202B0D241C0056880A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D98FFC222B0D241E0056880A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D98FFC252B0D241E0056880A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D98FFC2C2B0D267E0056880A /* CalendarCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellView.swift; sourceTree = "<group>"; };
+		D98FFC2E2B0F63270056880A /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		D98FFC302B0F6F8C0056880A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D98FFC322B0FAC240056880A /* AddWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutView.swift; sourceTree = "<group>"; };
+		D98FFC342B137BF80056880A /* WorkoutOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutOverviewView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +39,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D98FFC382B13817D0056880A /* Collections in Frameworks */,
+				D98FFC3A2B13817D0056880A /* DequeModule in Frameworks */,
+				D98FFC3C2B13817D0056880A /* OrderedCollections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +71,11 @@
 				D98FFC202B0D241C0056880A /* ContentView.swift */,
 				D98FFC222B0D241E0056880A /* Assets.xcassets */,
 				D98FFC242B0D241E0056880A /* Preview Content */,
+				D98FFC2C2B0D267E0056880A /* CalendarCellView.swift */,
+				D98FFC2E2B0F63270056880A /* CalendarViewModel.swift */,
+				D98FFC302B0F6F8C0056880A /* HomeView.swift */,
+				D98FFC322B0FAC240056880A /* AddWorkoutView.swift */,
+				D98FFC342B137BF80056880A /* WorkoutOverviewView.swift */,
 			);
 			path = "FitNotes-SwiftUI";
 			sourceTree = "<group>";
@@ -83,6 +104,11 @@
 			dependencies = (
 			);
 			name = "FitNotes-SwiftUI";
+			packageProductDependencies = (
+				D98FFC372B13817D0056880A /* Collections */,
+				D98FFC392B13817D0056880A /* DequeModule */,
+				D98FFC3B2B13817D0056880A /* OrderedCollections */,
+			);
 			productName = "FitNotes-SwiftUI";
 			productReference = D98FFC1B2B0D241C0056880A /* FitNotes-SwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +137,9 @@
 				Base,
 			);
 			mainGroup = D98FFC122B0D241C0056880A;
+			packageReferences = (
+				D98FFC362B13817D0056880A /* XCRemoteSwiftPackageReference "swift-collections" */,
+			);
 			productRefGroup = D98FFC1C2B0D241C0056880A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,7 +166,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D98FFC2F2B0F63270056880A /* CalendarViewModel.swift in Sources */,
+				D98FFC2D2B0D267E0056880A /* CalendarCellView.swift in Sources */,
 				D98FFC212B0D241C0056880A /* ContentView.swift in Sources */,
+				D98FFC352B137BF80056880A /* WorkoutOverviewView.swift in Sources */,
+				D98FFC312B0F6F8C0056880A /* HomeView.swift in Sources */,
+				D98FFC332B0FAC240056880A /* AddWorkoutView.swift in Sources */,
 				D98FFC1F2B0D241C0056880A /* FitNotes_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +376,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D98FFC362B13817D0056880A /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D98FFC372B13817D0056880A /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D98FFC362B13817D0056880A /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
+		D98FFC392B13817D0056880A /* DequeModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D98FFC362B13817D0056880A /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = DequeModule;
+		};
+		D98FFC3B2B13817D0056880A /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D98FFC362B13817D0056880A /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D98FFC132B0D241C0056880A /* Project object */;
 }
