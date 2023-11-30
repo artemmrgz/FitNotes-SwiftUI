@@ -11,6 +11,8 @@ struct HomeView: View {
     @State private var calendarVM = CalendarViewModel()
     @State private var selectedDay: Day = Day(dayOfMonth: "", dayOfWeek: "", dayAsDate: "")
     
+    @State private var fs = FirestoreManager()
+    
     var body: some View {
         VStack {
             Text("Hello, User!")
@@ -41,6 +43,10 @@ struct HomeView: View {
                     withAnimation {
                         value.scrollTo(today.id)
                     }
+                    
+                    Task {
+                        await fs.getExercises(userId: "RWk5R8StQaQ3hgmF6K6JyL4vRZm2", name: nil, date: "15.10.2023", muscleGroup: nil)
+                    }
                 }
             }
             
@@ -56,7 +62,7 @@ struct HomeView: View {
             .clipShape(.rect(cornerRadius: 10))
             .padding()
             
-            WorkoutOverviewView(exercises: exercises)
+            WorkoutOverviewView(exercises: fs.exercises)
         }
     }
 }
