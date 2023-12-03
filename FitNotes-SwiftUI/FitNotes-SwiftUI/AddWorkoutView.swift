@@ -12,46 +12,49 @@ struct AddWorkoutView: View {
                                GridItem(.flexible(), spacing: 16)]
 
     var body: some View {
-        VStack {
-            Button {
-                //TODO: navigate to workout creation page
-            } label: {
-                Text("Create From Scratch")
-            }
-            .frame(maxWidth: .infinity, maxHeight: 50)
-            .background(.blue)
-            .clipShape(.rect(cornerRadius: 12))
-            .foregroundStyle(Color.white)
-            
-            HStack {
-                Text("Templates")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                
-                Spacer()
-                
+        NavigationStack {
+            VStack {
                 Button {
-                    //TODO: navigate to template creation page
+                    //TODO: navigate to workout creation page
                 } label: {
-                    Label("Template", systemImage: "plus")
+                    Text("Create From Scratch")
                 }
-                .padding(10)
-                .background(Color.blue.opacity(0.1))
-                .foregroundStyle(Color.blue)
-                .clipShape(.rect(cornerRadius: 10))
-            }
-            .padding(.top, 30)
-            
-            ScrollView(.vertical) {
-                LazyVGrid(columns: columns, spacing: 16) {
-                    ForEach(temps) { template in
-                        let exercises = template.exercises.map { $0.name }
-                        TemplateView(name: template.name, exercises: exercises)
+                .frame(maxWidth: .infinity, maxHeight: 50)
+                .background(.blue)
+                .clipShape(.rect(cornerRadius: 12))
+                .foregroundStyle(Color.white)
+                
+                HStack {
+                    Text("Templates")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                    
+                    Spacer()
+                    
+                    Button {
+                        //TODO: navigate to template creation page
+                    } label: {
+                        Label("Template", systemImage: "plus")
+                    }
+                    .padding(10)
+                    .background(Color.blue.opacity(0.1))
+                    .foregroundStyle(Color.blue)
+                    .clipShape(.rect(cornerRadius: 10))
+                }
+                .padding(.top, 30)
+                
+                ScrollView(.vertical) {
+                    LazyVGrid(columns: columns, spacing: 16) {
+                        ForEach(temps) { template in
+                            let exercises = template.exercises.map { $0.name }
+                            TemplateView(name: template.name, exercises: exercises)
+                        }
                     }
                 }
             }
+            .padding()
+            .navigationTitle("Add Workout")
         }
-        .padding()
     }
 }
 

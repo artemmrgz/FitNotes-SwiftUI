@@ -37,7 +37,6 @@ class FirestoreManager {
         
         do {
             let snapshot = try await query.getDocuments()
-            print("snapshot", snapshot)
             
             var exses = [Exercise]()
             
