@@ -25,9 +25,10 @@ struct TemplateView: View {
             }
         }
         .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .mask(LinearGradient(gradient: Gradient(colors: [.black, .black, .clear]), startPoint: .top, endPoint: .bottom))
-        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 2))
+        .overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(Color.gray, lineWidth: 2))
     }
 }
 

@@ -46,6 +46,7 @@
 		D98FFCC42B1511340056880A /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = D98FFCC32B1511340056880A /* FirebasePerformance */; };
 		D98FFCC62B1511340056880A /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = D98FFCC52B1511340056880A /* FirebaseRemoteConfig */; };
 		D98FFCC82B1511340056880A /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D98FFCC72B1511340056880A /* FirebaseRemoteConfigSwift */; };
+		D98FFCCA2B1A53AE0056880A /* TemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98FFCC92B1A53AE0056880A /* TemplateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		D98FFC342B137BF80056880A /* WorkoutOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutOverviewView.swift; sourceTree = "<group>"; };
 		D98FFC872B13C1B60056880A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D98FFC942B13C2D90056880A /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		D98FFCC92B1A53AE0056880A /* TemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				D98FFC322B0FAC240056880A /* AddWorkoutView.swift */,
 				D98FFC342B137BF80056880A /* WorkoutOverviewView.swift */,
 				D98FFC942B13C2D90056880A /* FirestoreManager.swift */,
+				D98FFCC92B1A53AE0056880A /* TemplateView.swift */,
 			);
 			path = "FitNotes-SwiftUI";
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				D98FFC212B0D241C0056880A /* ContentView.swift in Sources */,
 				D98FFC352B137BF80056880A /* WorkoutOverviewView.swift in Sources */,
 				D98FFC312B0F6F8C0056880A /* HomeView.swift in Sources */,
+				D98FFCCA2B1A53AE0056880A /* TemplateView.swift in Sources */,
 				D98FFC332B0FAC240056880A /* AddWorkoutView.swift in Sources */,
 				D98FFC1F2B0D241C0056880A /* FitNotes_SwiftUIApp.swift in Sources */,
 				D98FFC952B13C2D90056880A /* FirestoreManager.swift in Sources */,
