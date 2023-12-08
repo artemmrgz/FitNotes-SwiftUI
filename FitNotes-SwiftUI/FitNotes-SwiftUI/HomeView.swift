@@ -65,7 +65,11 @@ struct HomeView: View {
                 .clipShape(.rect(cornerRadius: 10))
                 .padding()
                 
-                WorkoutOverviewView(exercises: fs.exercises)
+                if model.isLoading {
+                    ProgressView().centerVertically()
+                } else {
+                    WorkoutOverviewView(exercises: model.exercises)
+                }
             }
         }
     }

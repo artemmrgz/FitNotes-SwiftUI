@@ -68,9 +68,25 @@ struct CenterHorizontallyModifier: ViewModifier {
     }
 }
 
+struct CenterVerticallyModifier: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        VStack {
+            Spacer()
+            content
+            Spacer()
+        }
+    }
+}
+
+
 extension View {
     
     func centerHorizontally() -> some View {
         modifier(CenterHorizontallyModifier())
+    }
+    
+    func centerVertically() -> some View {
+        modifier(CenterVerticallyModifier())
     }
 }

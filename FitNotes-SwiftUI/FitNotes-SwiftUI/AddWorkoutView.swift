@@ -45,11 +45,15 @@ struct AddWorkoutView: View {
                 }
                 .padding(.top, 30)
                 
-                ScrollView(.vertical) {
-                    LazyVGrid(columns: columns, spacing: 16) {
-                        ForEach(temps) { template in
-                            let exercises = template.exercises.map { $0.name }
-                            TemplateView(name: template.name, exercises: exercises)
+                if model.isLoading {
+                    ProgressView().centerVertically()
+                } else {
+                    ScrollView(.vertical) {
+                        LazyVGrid(columns: columns, spacing: 16) {
+                            ForEach(model.templates) { template in
+                                let exercises = template.exercises.map { $0.name }
+                                TemplateView(name: template.name, exercises: exercises)
+                            }
                         }
                     }
                 }
