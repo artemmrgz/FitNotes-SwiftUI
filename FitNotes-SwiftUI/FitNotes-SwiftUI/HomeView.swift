@@ -11,7 +11,7 @@ struct HomeView: View {
     @State private var calendarVM = CalendarViewModel()
     @State private var selectedDay: Day = Day(dayOfMonth: "", dayOfWeek: "", dayAsDate: "")
     
-    @State private var fs = FirestoreManager()
+    @State private var model = ExercisesModel()
     
     var body: some View {
         NavigationStack {
@@ -46,7 +46,11 @@ struct HomeView: View {
                         }
                         
                         Task {
-                            await fs.getExercises(userId: "RWk5R8StQaQ3hgmF6K6JyL4vRZm2", name: nil, date: "15.10.2023", muscleGroup: nil)
+                            do {
+                                try await model.getExercises(userId: "RWk5R8StQaQ3hgmF6K6JyL4vRZm2", name: nil, date: "15.10.2023", muscleGroup: nil)
+                            } catch {
+                                print(error.localizedDescription)
+                            }
                         }
                     }
                 }

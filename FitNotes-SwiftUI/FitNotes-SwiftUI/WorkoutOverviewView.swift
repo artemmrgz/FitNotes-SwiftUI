@@ -54,24 +54,6 @@ struct WorkoutOverviewView: View {
 }
 
 
-struct Exercise: Codable, Hashable {
-    let name: String
-    let muscleGroup: String
-    let date: String
-    var statistics: [Statistics]
-    
-    static func == (lhs: Exercise, rhs: Exercise) -> Bool {
-        lhs.name == rhs.name && lhs.muscleGroup == rhs.muscleGroup
-    }
-}
-
-struct Statistics: Codable, Hashable {
-    var sets: Int
-    let repetitions: Int
-    let weight: Int?
-}
-
-
 var exercises: OrderedDictionary = ["Back": [Exercise(name: "Pull-updjhfjdcnxklj jsfhjsd w skiehfueh sjnduehf fjdhfuvc sdefsa", muscleGroup: "Back", date: "20-06-2023", statistics: [Statistics(sets: 2, repetitions: 2, weight: 12), Statistics(sets: 10, repetitions: 12, weight: 120), Statistics(sets: 1, repetitions: 15, weight: 1)]), Exercise(name: "Pull-up", muscleGroup: "Back", date: "20-06-2023", statistics: [Statistics(sets: 2, repetitions: 2, weight: 12), Statistics(sets: 10, repetitions: 12, weight: 120), Statistics(sets: 1, repetitions: 15, weight: 1)])]]
 
 

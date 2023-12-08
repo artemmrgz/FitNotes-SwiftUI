@@ -10,6 +10,8 @@ import SwiftUI
 struct AddWorkoutView: View {
     let columns: [GridItem] = [GridItem(.flexible(), spacing: 16),
                                GridItem(.flexible(), spacing: 16)]
+    
+    @State var model = TemplatesModel()
 
     var body: some View {
         NavigationStack {
@@ -54,6 +56,15 @@ struct AddWorkoutView: View {
             }
             .padding()
             .navigationTitle("Add Workout")
+            .onAppear {
+                Task {
+                    do {
+                        try await model.getTemplates(userId: "RWk5R8StQaQ3hgmF6K6JyL4vRZm2")
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+            }
         }
     }
 }
@@ -61,37 +72,3 @@ struct AddWorkoutView: View {
 #Preview {
     AddWorkoutView()
 }
-
-enum MuscleGroup: String, CaseIterable {
-    case abs = "Abs"
-    case back = "Back"
-    case biceps = "Biceps"
-    case chest = "Chest"
-    case legs = "Legs"
-    case shoulders = "Shoulders"
-    case triceps = "Triceps"
-}
-
-struct Template: Identifiable {
-    var id: UUID = .init()
-    let name: String
-    let exercises: [Exercise]
-}
-
-let temps = [
-    Template(name: "Legs and shoulders", exercises: [
-        Exercise(name: "Pull up", muscleGroup: "Legs", date: "20.01.2023", statistics: [Statistics(sets: 1, repetitions: 1, weight: 1)]),
-        Exercise(name: "Leg Extension (Machine)", muscleGroup: "Legs", date: "20.01.2023", statistics: [Statistics(sets: 1, repetitions: 1, weight: 1)]),
-        Exercise(name: "Squat", muscleGroup: "Legs", date: "20.01.2023", statistics: [Statistics(sets: 1, repetitions: 1, weight: 1)])]),
-    Template(name: "Legs", exercises: [
-        Exercise(name: "Pull up", muscleGroup: "Legs", date: "20.01.2023", statistics: [Statistics(sets: 1, repetitions: 1, weight: 1)]),
-        Exercise(name: "Leg Extension", muscleGroup: "Legs", date: "20.01.2023", statistics: [Statistics(sets: 1, repetitions: 1, weight: 1)]),
-        Exercise(name: "Squat", muscleGroup: "Legs", date: "20.01.2023", statistics: [Statistics(sets: 1, repetitions: 1, weight: 1)])]),
-    Template(name: "Legs", exercises: [
-        Exercise(name: "Pull up", muscleGroup: "Legs", date: "20.01.2023", statistics: [Statistics(sets: 1, repetitions: 1, weight: 1)]),
-        Exercise(name: "Leg Extension", muscleGroup: "Legs", date: "20.01.2023", statistics: [Statistics(sets: 1, repetitions: 1, weight: 1)]),
-        Exercise(name: "Squat", muscleGroup: "Legs", date: "20.01.2023", statistics: [Statistics(sets: 1, repetitions: 1, weight: 1)])]),
-    Template(name: "Legs", exercises: [
-        Exercise(name: "Pull up", muscleGroup: "Legs", date: "20.01.2023", statistics: [Statistics(sets: 1, repetitions: 1, weight: 1)]),
-        Exercise(name: "Squat", muscleGroup: "Legs", date: "20.01.2023", statistics: [Statistics(sets: 1, repetitions: 1, weight: 1)])])
-]
