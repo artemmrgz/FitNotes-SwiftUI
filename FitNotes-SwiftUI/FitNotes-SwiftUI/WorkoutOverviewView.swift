@@ -36,12 +36,7 @@ struct WorkoutOverviewView: View {
                             }
                         }
                         .frame(maxWidth: .infinity)
-                        .alignmentGuide(.listRowSeparatorLeading) { dimension in
-                            dimension[.leading]
-                        }
-                        .alignmentGuide(.listRowSeparatorTrailing) { dimension in
-                            dimension[.trailing]
-                        }
+                        .centerListRowSeparatorModifier()
                     }
                 }
             }
@@ -79,6 +74,19 @@ struct CenterVerticallyModifier: ViewModifier {
     }
 }
 
+struct CenterListRowSeparatorModifier: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content
+            .alignmentGuide(.listRowSeparatorLeading) { dimension in
+                dimension[.leading]
+            }
+            .alignmentGuide(.listRowSeparatorTrailing) { dimension in
+                dimension[.trailing]
+            }
+    }
+}
+
 
 extension View {
     
@@ -88,5 +96,9 @@ extension View {
     
     func centerVertically() -> some View {
         modifier(CenterVerticallyModifier())
+    }
+    
+    func centerListRowSeparatorModifier() -> some View {
+        modifier(CenterListRowSeparatorModifier())
     }
 }

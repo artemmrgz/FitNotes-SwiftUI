@@ -153,6 +153,11 @@ class ExercisesModel {
         }
         return exercisesByMuscleGroup
     }
+    
+    func getExistingExerciseNames(for muscleGroup: MuscleGroup, userId: String) async throws -> [String] {
+        let exercises = try await dbManager.getExercises(userId: userId, name: nil, date: nil, muscleGroup: muscleGroup.rawValue)
+        return exercises.map { $0.name }
+    }
 }
 
 @Observable
