@@ -8,6 +8,7 @@
 import Collections
 import FirebaseFirestore
 import Foundation
+import SwiftUI
 
 struct Exercise: Codable, Hashable {
     let name: String
@@ -175,3 +176,13 @@ class TemplatesModel {
     }
 }
 
+private struct ExercisesModelKey: EnvironmentKey {
+    static var defaultValue: ExercisesModel = ExercisesModel()
+}
+
+extension EnvironmentValues {
+    var exercisesModel: ExercisesModel {
+        get { self[ExercisesModelKey.self] }
+        set { self[ExercisesModelKey.self] = newValue }
+    }
+}

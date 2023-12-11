@@ -11,7 +11,7 @@ struct HomeView: View {
     @State private var calendarVM = CalendarViewModel()
     @State private var selectedDay: Day = Day(dayOfMonth: "", dayOfWeek: "", dayAsDate: "")
     
-    @State private var model = ExercisesModel()
+    @Environment(\.exercisesModel) private var exercisesModel
     
     var body: some View {
         NavigationStack {
@@ -47,7 +47,7 @@ struct HomeView: View {
                         
                         Task {
                             do {
-                                try await model.getExercises(userId: "RWk5R8StQaQ3hgmF6K6JyL4vRZm2", name: nil, date: "15.10.2023", muscleGroup: nil)
+                                try await exercisesModel.getExercises(userId: "RWk5R8StQaQ3hgmF6K6JyL4vRZm2", name: nil, date: "15.10.2023", muscleGroup: nil)
                             } catch {
                                 print(error.localizedDescription)
                             }
@@ -65,10 +65,10 @@ struct HomeView: View {
                 .clipShape(.rect(cornerRadius: 10))
                 .padding()
                 
-                if model.isLoading {
+                if exercisesModel.isLoading {
                     ProgressView().centerVertically()
                 } else {
-                    WorkoutOverviewView(exercises: model.exercises)
+                    WorkoutOverviewView(exercises: exercisesModel.exercises)
                 }
             }
         }

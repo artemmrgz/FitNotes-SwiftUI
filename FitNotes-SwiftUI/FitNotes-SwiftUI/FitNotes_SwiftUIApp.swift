@@ -18,6 +18,7 @@ struct FitNotes_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .environment(\.exercisesModel, ExercisesModel())
         }
     }
 }
