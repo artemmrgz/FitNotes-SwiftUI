@@ -9,6 +9,7 @@ import Collections
 import FirebaseFirestore
 import Foundation
 import SwiftUI
+import Observation
 
 struct Exercise: Codable, Hashable {
     let name: String
@@ -21,10 +22,34 @@ struct Exercise: Codable, Hashable {
     }
 }
 
-struct Statistics: Codable, Hashable {
+@Observable
+class Statistics: Codable, Hashable, Equatable {
+    enum CodingKeys: String, CodingKey {
+        case _id = "id"
+        case _sets = "sets"
+        case _repetitions = "repetitions"
+        case _weight = "weight"
+    }
+    
+    var id: UUID
     var sets: Int
-    let repetitions: Int
-    let weight: Int?
+    var repetitions: Int
+    var weight: Int
+    
+    init(id: UUID = .init(), sets: Int, repetitions: Int, weight: Int) {
+        self.id = id
+        self.sets = sets
+        self.repetitions = repetitions
+        self.weight = weight
+    }
+    
+    static func ==(lhs: Statistics, rhs: Statistics) -> Bool {
+        return lhs.repetitions == rhs.repetitions && lhs.weight == rhs.weight
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 struct Template: Identifiable, Codable {
@@ -84,8 +109,8 @@ class FirestoreManager: DatabaseManageable {
     }
     
     func getTemplates(userId: String) async throws -> [Template] {
-        let query = db.collection("users").document(userId).collection("templates")
-        let snapshot = try await query.getDocuments()
+//        let query = db.collection("users").document(userId).collection("templates")
+//        let snapshot = try await query.getDocuments()
         
 //        var templates = [Template]()
 //            

@@ -27,8 +27,8 @@ struct WorkoutOverviewView: View {
                             
                             VStack {
                                 ForEach(exercise.statistics, id: \.self) { statistic in
-                                    if let weight = statistic.weight {
-                                        Text("\(statistic.sets) sets x \(statistic.repetitions) reps x \(weight) kg")
+                                    if statistic.weight != 0 {
+                                        Text("\(statistic.sets) sets x \(statistic.repetitions) reps x \(statistic.weight) kg")
                                     } else {
                                         Text("\(statistic.sets) sets x \(statistic.repetitions) reps")
                                     }
