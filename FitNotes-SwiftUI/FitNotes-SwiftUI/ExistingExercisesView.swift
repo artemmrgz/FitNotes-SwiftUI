@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ExistingExercisesView: View {
-    @Binding var isShowing: Bool
     @Binding var exerciseName: String
     var muscleGroup: MuscleGroup
     
     @Environment(\.exercisesModel) private var model
+    @Environment(\.dismiss) private var dismiss
     @State private var exercises = [String]()
     @State private var hasLoaded = false
    
@@ -37,7 +37,7 @@ struct ExistingExercisesView: View {
                                     .centerListRowSeparatorModifier()
                                     .onTapGesture {
                                         exerciseName = exercise
-                                        isShowing.toggle()
+                                        dismiss()
                                     }
                             }
                         }
@@ -54,9 +54,7 @@ struct ExistingExercisesView: View {
             .background(.ultraThinMaterial)
             .toolbar {
                 Button {
-                    withAnimation {
-                        isShowing.toggle()
-                    }
+                    dismiss()
                 } label: {
                     Image(systemName: "x.circle")
                 }
@@ -77,5 +75,5 @@ struct ExistingExercisesView: View {
 }
 
 #Preview {
-    ExistingExercisesView(isShowing: .constant(true), exerciseName: .constant(""), muscleGroup: .abs)
+    ExistingExercisesView(exerciseName: .constant(""), muscleGroup: .abs)
 }
